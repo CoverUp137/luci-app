@@ -18,7 +18,7 @@ env:
 
   # 2. 设置要编译的 OpenWrt 版本 (可以是分支名或标签名)
   #    例如: 'v23.05.3', 'openwrt-23.05', 'master'
-  OPENWRT_VERSION: 'v24.10.3
+  OPENWRT_VERSION: 'openwrt-24.10-6.6
 # ======================================================================================
 # ==                            👆 用户配置区域 👆                            ==
 # ======================================================================================
@@ -32,18 +32,18 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - name: x86_64
-            target: x86
-            subtarget: 64
-            profile: generic
+          #- name: x86_64
+           # target: x86
+           # subtarget: 64
+           # profile: generic
           - name: armv8_cortex-a53
             target: armvirt
             subtarget: 64
             profile: generic
-          - name: mips_mt7621
-            target: ramips
-            subtarget: mt7621
-            profile: default
+        #  - name: mips_mt7621
+         #   target: ramips
+         #   subtarget: mt7621
+          #  profile: default
     
     # 定义工具链缓存
     steps:
@@ -64,7 +64,7 @@ jobs:
 
       - name: Clone OpenWrt source
         if: steps.cache-toolchain.outputs.cache-hit != 'true'
-        run: git clone https://github.com/openwrt/openwrt.git --depth 1 --branch ${{ env.OPENWRT_VERSION }} openwrt
+        run: git clone https://github.com/padavanonly/immortalwrt-mt798x-6.6.git --depth 1 --branch ${{ env.OPENWRT_VERSION }} openwrt
 
       - name: Prepare toolchain environment
         if: steps.cache-toolchain.outputs.cache-hit != 'true'
