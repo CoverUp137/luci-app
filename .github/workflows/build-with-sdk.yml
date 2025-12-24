@@ -1,4 +1,3 @@
-
 # .github/workflows/build.yml
 
 name: Build OpenWrt Package (using SDK)
@@ -45,8 +44,6 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          # The compiled path is found here in https://downloads.openwrt.org/releases/24.10.3/targets, and the name is anything.
-          # 编译的path在https://downloads.openwrt.org/releases/24.10.3/targets 这里查找，name随意
           - name: x86_64
             path: x86/64
           - name: mediatek_filogic
