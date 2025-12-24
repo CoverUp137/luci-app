@@ -173,7 +173,7 @@ jobs:
       - name: Post comment
         uses: peter-evans/commit-comment@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
           body: |
             ✅ **${{ env.PACKAGE_NAME }}** build successful for all targets!
 
